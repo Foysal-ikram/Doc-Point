@@ -1,0 +1,39 @@
+.btn2{
+    color: black !important;
+    background-color: aqua;
+    border: 0;
+}
+
+
+
+.icon:hover{
+   
+       transform: scale(1.5);
+        transition: .4s;
+   
+}
+
+
+.nav3{
+    margin-right: -50;
+   content: " ";
+  width: 300px;
+  height: 22px;
+    transform: skew(20deg);
+   font-style: normal;
+   text-decoration: none;
+   overflow: hiden;
+
+  
+}
+.nav4{
+    margin-left: -10;
+   content: " ";
+   height: 22px;
+  width: 300px;
+    transform: skew(-20deg);
+   font-style: normal;
+   text-decoration: none;
+
+  
+}

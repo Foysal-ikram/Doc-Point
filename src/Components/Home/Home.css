@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+display: flex;
+font-size: 30px;
+
+
+}
+.main .option{
+    color: rgb(0, 0, 0) ;
+    font-size: 30px;
+    margin-left: 10px;
+    height: 35px;
+    overflow: hidden;
+
+}
+.option li{
+    list-style: none; 
+    color: rgb(177, 13, 13);
+    font-size: 30px;
+    font-weight: 500;
+    position: relative;
+    animation: slide 12s steps(2) infinite;
+   }
+
+   @keyframes slide{
+    100%{
+        top: -45px ;
+    }
+   }
+
+.option li::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-left: 2px solid red;
+    animation: type 6s steps(22) infinite;
+       
+}
+@keyframes type{
+    40%,60% {
+        left : calc(100% + 0px)
+    }
+    100%{
+        left: 0;
+    }
+}
+
+
+
+.bg2{
+    background-image:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.955), rgba(255, 255, 255, 0.898)),
+    url('../../assets/chair.png');
+    background-position: left;
+    background-size: cover;
+
+    
+}
