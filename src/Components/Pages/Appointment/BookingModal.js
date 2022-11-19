@@ -1,6 +1,6 @@
 import React from 'react';
 import { format } from 'date-fns';
-import toast from 'react-hot-toast';
+import Swal from 'sweetalert2'
 
 
 
@@ -9,20 +9,20 @@ const BookingModal = ({ selectedtreatment, setSelectedtreatment, selectedDate })
     const date = format(selectedDate, 'PP');
 
 
-    
+
 
     const handleBooking = event => {
         event.preventDefault();
         const form = event.target;
         const slot = form.slot.value;
-        const patient = form.name.patient;
+        const patient = form.patient.value;
         const email = form.email.value;
         const phone = form.phone.value;
-        // [3, 4, 5].map((value, i) => console.log(value))
+
         const booking = {
-            appointmentDate: date ,
+            appointmentDate: date,
             treatment: selectedtreatment.name,
-            patient ,
+            patient,
             slot,
             email,
             phone,
@@ -31,29 +31,37 @@ const BookingModal = ({ selectedtreatment, setSelectedtreatment, selectedDate })
         // TODO: send data to the server
         // and once data is saved then close the modal 
         // and display success toast
+
         console.log(booking);
-        fetch('http://localhost:5000/slots' , {
-            method : 'POST' ,
+        fetch('http://localhost:5000/slots', {
+            method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(booking)
-        } )
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            if(data.acknowledged){
-                setSelectedtreatment(null)
-                toast('Here is your toast.')
-            
-            }
         })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    // alert('ok')
+                    Swal.fire(
+                        'Thank You!',
+                        'Your Appointment is Placed',
+                        'success'
+
+                    )
+                    setSelectedtreatment(null)
+
+                }
+            })
 
     }
 
 
     return (
         <>
+            
             <input type="checkbox" id="booking-modal" className="modal-toggle " />
             <div className="modal">
                 <div className="modal-box relative">
@@ -67,7 +75,8 @@ const BookingModal = ({ selectedtreatment, setSelectedtreatment, selectedDate })
                                 selectedtreatment.slots.map((slot, i) => <option
                                     value={slot}
                                     key={i}
-                                >{slot}</option>)
+                                >{slot}
+                                </option>)
                             }
                         </select>
 
@@ -77,6 +86,7 @@ const BookingModal = ({ selectedtreatment, setSelectedtreatment, selectedDate })
                         <br />
                         <input className='btn btn-accent w-full' type="submit" value="Submit" />
                     </form>
+
                 </div>
             </div>
 

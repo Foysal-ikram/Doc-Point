@@ -3,7 +3,7 @@ import '../../../App.css'
 
 const AppointmentCard = ({treatment,setSelectedtreatment, selectedDate , setSelectedDate}) => {
     const {name , slots} = treatment ;
-    console.log(slots)
+    //console.log(slots)
 
     return (
         <div className='mx-auto border-2 w-full text-center  shadow-2xl p-12 rounded-lg 	'>

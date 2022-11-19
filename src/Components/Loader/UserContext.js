@@ -1,6 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getAuth , createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup } from "firebase/auth";
+import { getAuth , createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 import app from '../../firebase.config';
+import { toast } from 'react-toastify';
+
 
 
 export const AuthContext = createContext();
@@ -31,6 +33,15 @@ const UserContext = ({ children }) => {
         setLoading(true)        
         return signInWithPopup(auth , provider) ;
     }
+    const verifyEmail =()=>{
+        sendEmailVerification(auth.currentUser)
+        .then(res=> {
+            toast('check your mail')
+        })
+    }
+    const forgetPass =(email)=>{
+        sendPasswordResetEmail(auth,email)
+    }
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged( auth , currentUser=>{
@@ -46,7 +57,7 @@ const UserContext = ({ children }) => {
 
     },[])
 
-    const authInfo = {user , createUser , signin , loading , logOut , google };
+    const authInfo = {user , createUser , signin , loading , logOut , google, verifyEmail, forgetPass };
   
    
 
