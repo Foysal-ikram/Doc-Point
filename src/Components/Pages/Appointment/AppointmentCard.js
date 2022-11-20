@@ -20,7 +20,7 @@ const AppointmentCard = ({ treatment, setSelectedtreatment, selectedDate, setSel
             </div>
 
             {
-                user?
+                user?.emailVerified?
                 <label
                     disabled={slots.length === 0}
                     htmlFor="booking-modal"

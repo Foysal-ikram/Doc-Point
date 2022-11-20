@@ -37,11 +37,7 @@ const UserContext = ({ children }) => {
     const verifyEmail =()=>{
         sendEmailVerification(auth.currentUser)
         .then(()=> {
-            Swal.fire(
-                'The Internet?',
-                'That thing is still around?',
-                'question'
-              )
+            
         })
     }
     const forgetPass =(email)=>{

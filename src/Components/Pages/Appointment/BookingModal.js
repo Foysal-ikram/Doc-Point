@@ -35,6 +35,7 @@ const BookingModal = ({ selectedtreatment, setSelectedtreatment, selectedDate, r
         // and once data is saved then close the modal 
         // and display success toast
 
+        
         console.log(booking);
         fetch('http://localhost:5000/slots', {
             method: 'POST',

@@ -22,6 +22,9 @@ const MyAppointment = () => {
         return <Loading></Loading>
     }
 
+    if(!user?.emailVerified){
+      return (<h1 className='text-center mt-20 text-4xl'>Please verify your email</h1>)
+    }
     return (
         <div className=''>
             { 
@@ -38,7 +41,7 @@ const MyAppointment = () => {
                  </thead>
                {
                 bookings.map((booking , i)=><Card
-                i={i}
+                i={i+1}
                 key={booking._id}
                 booking={booking}
                 ></Card>)
