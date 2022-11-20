@@ -20,7 +20,7 @@ const AppointmentCard = ({ treatment, setSelectedtreatment, selectedDate, setSel
             </div>
 
             {
-                user?.email?
+                user?
                 <label
                     disabled={slots.length === 0}
                     htmlFor="booking-modal"
@@ -29,13 +29,8 @@ const AppointmentCard = ({ treatment, setSelectedtreatment, selectedDate, setSel
                 >Book Appointment
                 </label>
           :
-            <label
-                disabled={slots.length === 0}
-                htmlFor="nouser"
-                className="btn btn-mine  mt-8 "
-                onClick={() => setSelectedtreatment(treatment)}
-            >Book Appointment
-            </label>
+            
+            <label htmlFor="sorry" className="btn btn-mine  mt-8">Book Appointment</label>
 
           }
 

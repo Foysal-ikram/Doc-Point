@@ -5,7 +5,7 @@ import Appointment from "../Components/Pages/Appointment/Appointment";
 import Blog from "../Components/Pages/Blog";
 import Contact from "../Components/Pages/Contact";
 import Login from "../Components/Pages/Login";
-import MyAppointment from "../Components/Pages/MyAppointment";
+import MyAppointment from "../Components/Pages/MyAppointment/MyAppointment";
 import Register from "../Components/Pages/Register";
 import Main from "../Layout/Main";
 import PrivateRoute from "./PrivateRout";

@@ -99,7 +99,6 @@ const Appointment = () => {
                 ></BookingModal>
 
             }
-
             <NoBookingModal></NoBookingModal>
 
         </section>

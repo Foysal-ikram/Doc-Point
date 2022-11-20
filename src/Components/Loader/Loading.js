@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState, CSSProperties } from "react";
 import { BounceLoader } from 'react-spinners';
 
 
