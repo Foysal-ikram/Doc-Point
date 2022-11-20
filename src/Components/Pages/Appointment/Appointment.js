@@ -23,7 +23,9 @@ const Appointment = () => {
     }
 
     // ------------------------------------2nd part----------------------------------------------
-    const { data: options=[]  } = useQuery({
+
+
+    const { data: options=[] , refetch  } = useQuery({
         queryKey : ['options' , date ] ,
         queryFn : () =>  fetch(`http://localhost:5000/slots?date=${date}`)
         .then(res => res.json())
@@ -91,6 +93,7 @@ const Appointment = () => {
                 selectedDate={selectedDate}
                 setSelectedtreatment={setSelectedtreatment}
                 selectedtreatment = {selectedtreatment}
+                refetch = {refetch}
 
             ></BookingModal>}
             

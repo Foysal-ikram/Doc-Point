@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 
 
 
-const BookingModal = ({ selectedtreatment, setSelectedtreatment, selectedDate }) => {
+const BookingModal = ({ selectedtreatment, setSelectedtreatment, selectedDate, refetch }) => {
     console.log(selectedtreatment, setSelectedtreatment, selectedDate)
     const date = format(selectedDate, 'PP');
 
@@ -49,9 +49,9 @@ const BookingModal = ({ selectedtreatment, setSelectedtreatment, selectedDate })
                         'Thank You!',
                         'Your Appointment is Placed',
                         'success'
-
                     )
                     setSelectedtreatment(null)
+                    refetch() ;
 
                 }
             })
