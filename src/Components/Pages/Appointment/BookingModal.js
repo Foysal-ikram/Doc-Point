@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { format } from 'date-fns';
 import Swal from 'sweetalert2'
+import { AuthContext } from '../../Loader/UserContext';
 
 
 
 const BookingModal = ({ selectedtreatment, setSelectedtreatment, selectedDate, refetch }) => {
     console.log(selectedtreatment, setSelectedtreatment, selectedDate)
     const date = format(selectedDate, 'PP');
+    const {user } = useContext(AuthContext)
+    console.log(user)
 
 
 
@@ -57,6 +60,8 @@ const BookingModal = ({ selectedtreatment, setSelectedtreatment, selectedDate, r
             })
 
     }
+
+    
 
 
     return (

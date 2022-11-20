@@ -38,6 +38,7 @@ const Header = () => {
 
                     <>
                     <li><Link to={'/login'} className='font-font-medium nav2 mx-1 rounded-md text-xl'>Login</Link></li>
+                    <li><Link to={'/register'} className='font-font-medium nav2 mx-1 rounded-md text-xl'>Signup</Link></li>
                     </>
         }
 
@@ -70,9 +71,9 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end lg:mr-40">
-                <Link><img src={fb} alt="" className=' icon' width={20} /></Link>
-                <Link><img src={tw} alt="" className='mx-2 icon' width={20} /></Link>
-                <Link><img src={li} alt="" className='icon' width={20} /></Link>
+                <a href='https://www.facebook.com/foysal.ikram' target="_blank" rel="noopener noreferrer"><img src={fb} alt="" className=' icon' width={30} /></a>
+                <a href='https://twitter.com/foysal_ikram' target="_blank" rel="noopener noreferrer"><img src={tw} alt="" className='mx-4 rounded icon' width={30} /></a>
+                <a href='https://www.linkedin.com/in/md-foysal-ikram-610b1b152/' target="_blank" rel="noopener noreferrer"><img src={li} alt="" className='icon' width={30} /></a>
             </div>
         </div>
     );

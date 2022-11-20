@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import { getAuth , createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithPopup, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 import app from '../../firebase.config';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2' ;
 
 
 
@@ -35,8 +36,12 @@ const UserContext = ({ children }) => {
     }
     const verifyEmail =()=>{
         sendEmailVerification(auth.currentUser)
-        .then(res=> {
-            toast('check your mail')
+        .then(()=> {
+            Swal.fire(
+                'The Internet?',
+                'That thing is still around?',
+                'question'
+              )
         })
     }
     const forgetPass =(email)=>{

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Loader/UserContext';
 import { FcGoogle } from "react-icons/fc";
 import { GoogleAuthProvider, sendEmailVerification } from 'firebase/auth';
+import Swal from 'sweetalert2'
 
 const Register = () => {
     const provider = new GoogleAuthProvider() ;
@@ -18,9 +19,20 @@ const Register = () => {
         
         console.log(email,password)
 
-        verifyEmail() ;
+       
+        
         createUser(email,password)
-        .then(res => console.log(res))
+        .then(res =>{
+             console.log(res)
+             verifyEmail();
+             Swal.fire(
+                 'The Internet?',
+                 'That thing is still around?',
+                 'question'
+               )
+             form.reset()            
+                        
+            })
 
 
     }
