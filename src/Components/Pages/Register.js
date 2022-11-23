@@ -4,12 +4,16 @@ import { AuthContext } from '../Loader/UserContext';
 import { FcGoogle } from "react-icons/fc";
 import { GoogleAuthProvider, sendEmailVerification } from 'firebase/auth';
 import Swal from 'sweetalert2'
+import useToken from '../../Hooks/useToken';
 
 const Register = () => {
     const provider = new GoogleAuthProvider();
     const navigate = useNavigate();
     const { user, createUser, google, verifyEmail } = useContext(AuthContext);
     const [error, setError] = useState([]);
+
+    const [mail,setMail] = useState('') ;
+    const [Token] = useToken(mail)
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -39,11 +43,14 @@ const Register = () => {
     const google2 = () => {
         google(provider)
             .then(res => {
+                //console.log(res.user.email)
                 navigate('/')
             })
             .catch(err => console.log(err))
 
     }
+// --------------------------------Save user to my database-----------------------------
+
 
     const saveUser = (name, email , phone) => {
         const user = {name , email, phone}
@@ -55,7 +62,8 @@ const Register = () => {
             body: JSON.stringify(user) 
         })
         .then(res=>{
-            console.log(res)
+            //console.log(res)
+            setMail(mail)
             Swal.fire(
                 'Check your email',
                 'We have sent you a verification email. Check the mail and verify your email',

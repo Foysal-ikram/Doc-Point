@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <div>
            <div>
-           <footer className="footer p-16 bg-sky-800 text-white mt-48 hidden lg:inline-grid">
+           <footer className="footer p-16 bg-blue-900 text-white mt-4 hidden lg:inline-grid">
                 <div>
                     {/* <img src={star} width={100} alt="" /> */}
                     <img src={img} alt="" width={100} />

@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
-import UseTitle from '../UseTitle/UseTitle';
+import UseTitle from '../../Hooks/UseTitle';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../Loader/UserContext';
 import { GoogleAuthProvider } from 'firebase/auth';
 import Swal from 'sweetalert2'
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     UseTitle('Login')
@@ -21,6 +22,9 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
     const provider = new GoogleAuthProvider();
 
+    const [mail,setMail] = useState('')
+    const [Token] = useToken(mail)
+
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -32,8 +36,8 @@ const Login = () => {
 
         signin(email, password)
             .then(res => {
-
                 const user = res.user;
+                setMail(user.email)
                 console.log(user)
                 navigate('/')
             })
@@ -48,8 +52,6 @@ const Login = () => {
                 console.log(result)
                 const user = result.user;
                 navigate('/')
-
-
             })
             .catch(err => console.log(err))
 

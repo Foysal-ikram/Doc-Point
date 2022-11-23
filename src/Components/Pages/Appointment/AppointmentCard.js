@@ -8,9 +8,9 @@ const AppointmentCard = ({ treatment, setSelectedtreatment, selectedDate, setSel
     //console.log(slots)
 
     return (
-        <div className='mx-auto border-2 w-full text-center  shadow-2xl p-12 rounded-lg 	'>
+        <div className='mx-auto border-2 w-full text-center  shadow-2xl p-8 rounded-lg 	'>
             <div>
-                <h1 className='text-3xl mb-8 text-teal-400	font-bold '>{name}</h1>
+                <h1 className='text-2xl mb-4 text-teal-400	font-bold '>{name}</h1>
                 <p >{
                     slots.length > 0 ? slots[0] : 'All slots full'
                 }</p>

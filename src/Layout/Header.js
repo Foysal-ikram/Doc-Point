@@ -5,9 +5,11 @@ import tw from '../assets/twitter.png';
 import li from '../assets/linkedin.png';
 import fb from '../assets/facebook.png';
 import { AuthContext } from '../Components/Loader/UserContext';
+import useAdmin from '../Hooks/useAdmin';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
+    const [isAdmin ] = useAdmin(user?.email)
     console.log(user)
 
     const logOut2 = () => {
@@ -26,20 +28,27 @@ const Header = () => {
 
 
 
-        {user?.uid ?
-                       
-                <>
-                <li><button onClick={logOut2} className='font-font-medium nav2 mx-1 rounded-md text-xl'>Sign out</button></li> 
-                <li><Link to={'/myappointment'} className='font-font-medium nav2 mx-1 rounded-md text-xl'>My Appointment</Link></li>
+        {user?.uid ? 
 
+            <>
+                <li><button onClick={logOut2} className='font-font-medium nav2 mx-1 rounded-md text-xl'>Sign out</button></li>
+               {!isAdmin && 
+               <li><Link to={'/myappointment'} className='font-font-medium nav2 mx-1 rounded-md text-xl'>My Appointment</Link></li>
+}
 
-                </>
-                :
+            </>
+            :
 
-                    <>
-                    <li><Link to={'/login'} className='font-font-medium nav2 mx-1 rounded-md text-xl'>Login</Link></li>
-                    <li><Link to={'/register'} className='font-font-medium nav2 mx-1 rounded-md text-xl'>Signup</Link></li>
-                    </>
+            <>
+                <li><Link to={'/login'} className='font-font-medium nav2 mx-1 rounded-md text-xl'>Login</Link></li>
+                <li><Link to={'/register'} className='font-font-medium nav2 mx-1 rounded-md text-xl'>Signup</Link></li>
+            </>
+        }
+        {isAdmin &&
+
+            <li><Link to={'/dashboard/users'} className='font-font-medium nav2 mx-1 rounded-md text-xl'>Dahboard</Link></li>
+            
+         
         }
 
 
@@ -50,7 +59,7 @@ const Header = () => {
 
 
     return (
-        <div className="navbar border-b-2 border-sky-500 bg-base-100 lg:pl-20">
+        <div className=" z-20 navbar border-b-2 border-sky-500 bg-base-100 lg:pl-20 self-start sticky top-0 col-span-1">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -70,10 +79,10 @@ const Header = () => {
                     {menue}
                 </ul>
             </div>
-            <div className="navbar-end lg:mr-40">
-                <a href='https://www.facebook.com/foysal.ikram' target="_blank" rel="noopener noreferrer"><img src={fb} alt="" className=' icon' width={30} /></a>
-                <a href='https://twitter.com/foysal_ikram' target="_blank" rel="noopener noreferrer"><img src={tw} alt="" className='mx-4 rounded icon' width={30} /></a>
-                <a href='https://www.linkedin.com/in/md-foysal-ikram-610b1b152/' target="_blank" rel="noopener noreferrer"><img src={li} alt="" className='icon' width={30} /></a>
+            <div className="navbar-end lg:mr-20">
+                <a href='https://www.facebook.com/foysal.ikram' target="_blank" rel="noopener noreferrer"><img src={fb} alt="" className=' icon' width={22} /></a>
+                <a href='https://twitter.com/foysal_ikram' target="_blank" rel="noopener noreferrer"><img src={tw} alt="" className='mx-2 rounded icon' width={22} /></a>
+                <a href='https://www.linkedin.com/in/md-foysal-ikram-610b1b152/' target="_blank" rel="noopener noreferrer"><img src={li} alt="" className='icon' width={22} /></a>
             </div>
         </div>
     );
