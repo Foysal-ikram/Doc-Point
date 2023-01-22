@@ -6,7 +6,7 @@ import Card2 from './Card2';
 const AllAppointments = () => {
   const { data: appointments = [], refetch, isLoading } = useQuery({
     queryKey: ['appointments'],
-    queryFn: () => fetch(`http://localhost:5000/admin/appointments`)
+    queryFn: () => fetch(`https://doctors-portal-server-ochre.vercel.app/admin/appointments`)
       .then(res => res.json())
   })
   console.log(appointments)

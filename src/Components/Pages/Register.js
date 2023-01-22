@@ -54,7 +54,7 @@ const Register = () => {
 
     const saveUser = (name, email , phone) => {
         const user = {name , email, phone}
-        fetch('http://localhost:5000/user', {
+        fetch('https://doctors-portal-server-ochre.vercel.app/user', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

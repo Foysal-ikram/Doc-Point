@@ -7,7 +7,7 @@ const AllUsersCard = ({ user ,i , refetch}) => {
     const makeAdmin=id=>{
         console.log(id)
        
-        fetch(`http://localhost:5000/admin?id=${id}` , {
+        fetch(`https://doctors-portal-server-ochre.vercel.app/admin?id=${id}` , {
             method : 'PUT' ,
             
         })
@@ -26,7 +26,7 @@ const AllUsersCard = ({ user ,i , refetch}) => {
    
     const removeAdmin=id=>{
                
-        fetch(`http://localhost:5000/removeadmin?id=${id}` , {
+        fetch(`https://doctors-portal-server-ochre.vercel.app/removeadmin?id=${id}` , {
             method : 'PUT' ,
             
         })

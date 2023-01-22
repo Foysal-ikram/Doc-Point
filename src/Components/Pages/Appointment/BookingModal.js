@@ -37,7 +37,7 @@ const BookingModal = ({ selectedtreatment, setSelectedtreatment, selectedDate, r
 
         
         console.log(booking);
-        fetch('http://localhost:5000/slots', {
+        fetch('https://doctors-portal-server-ochre.vercel.app/slots', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

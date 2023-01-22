@@ -19,7 +19,7 @@ const ReviewLayout = () => {
 
         }
 
-        fetch(`http://localhost:5000/post`, {
+        fetch(`https://doctors-portal-server-ochre.vercel.app/post`, {
             method: 'POST' ,
             headers : {
                 'content-type' : 'application/json'

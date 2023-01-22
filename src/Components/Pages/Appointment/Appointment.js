@@ -29,14 +29,14 @@ const Appointment = () => {
 
     const { data: options = [], refetch, isLoading } = useQuery({
         queryKey: ['options', date],
-        queryFn: () => fetch(`http://localhost:5000/slots?date=${date}`)
+        queryFn: () => fetch(`https://doctors-portal-server-ochre.vercel.app/slots?date=${date}`)
             .then(res => res.json())
     })
 
 
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/slots')
+    //     fetch('https://doctors-portal-server-ochre.vercel.app/slots')
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data)
